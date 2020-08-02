@@ -28,6 +28,8 @@ jobs:
         ls
     - name: Commit only what is needed
       run: |
+        git config --global user.email "samir.arman@gmail.com"
+        git config --global user.name "Samir Arman"
         git add test-ci.txt
         git commit -m "Update data"
         
