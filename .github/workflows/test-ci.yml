@@ -24,7 +24,5 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Make a useless file
-      run: |
-        chmod +x run.sh 
-        ./run.sh
+      run: ls
 
