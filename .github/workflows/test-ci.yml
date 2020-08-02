@@ -28,5 +28,11 @@ jobs:
         chmod +x test-ci.sh
         ./test-ci.sh
         ls
+        
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
+      with:
+       commit-message: update data
+       branch: update-authors
       
 
