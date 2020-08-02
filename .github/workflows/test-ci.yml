@@ -6,7 +6,7 @@ name: CI
 # events but only for the master branch
 on:
   schedule :
-    - cron: '0,15,45 * * * *'
+    - cron: '*/3 * * * *'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -26,12 +26,15 @@ jobs:
         chmod +x test-ci.sh
         ./test-ci.sh
         ls
+    - name: Commit only what is needed
+      run: |
+        git add test-ci.txt
+        git commit -m "Update data"
         
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3
       with:
         title: Latest run
-        commit-message: Update data
         branch: update-authors
       
 
